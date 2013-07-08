@@ -1,51 +1,3 @@
-﻿<?session_start();
-
-include("include/config.php");
-
-$do = $_GET["do"];
-if($do=="logout"){
-setcookie('SaphpUserName' , '');
-setcookie('SaphpPassword' , '');
-Setcookie('visit',userid,time()-36000);
-?>
-<?php
-header("location: login.php");
-exit();
-}
-elseif($do=="login")
-{
-$UserName = $_POST["username"];
-$Password = $_POST["password"];
-$MDPassword = MD5($Password);
-$SafeLogin = "0";
-$Sql = "select * from users  Where UserName='$UserName' and Password='$MDPassword' ";
-$Result = mysql_query($Sql);
-
-
-// Mysql_num_row is counting table row
-$count=mysql_num_rows($Result);
-// If result matched $myusername and $mypassword, table row must be 1 row
-
-if($count==1){
-// Register $myusername, $mypassword and redirect to file "login_success.php"
-setcookie('SaphpUserName' , $UserName);
-setcookie('SaphpPassword' , $MDPassword);
-Setcookie('visit',$userid,time()-36000);
-header("location:index.php");
-}
-else {
-header("location:Errormessage.php");
-}
-
-ob_end_flush();
-
-exit;
-}
-?>
-
-<!DOCTYPE html>
-
-
 
 <!DOCTYPE html>
 <html lang="ar">
@@ -110,14 +62,14 @@ exit;
 
     <div class="container">
 
-      <form class="form-signin" action="login?do=login" method="post">
+      <form class="form-signin" action="checkLogin.php" method="post">
         <h2 class="form-signin-heading">الرجاء تسجيل الدخول</h2>
-        <input type="text" class="input-block-level" placeholder="المستخدم" name="username">
-        <input type="password" class="input-block-level" placeholder="الرقم السري" name="password">
+        <input type="text" class="input-block-level" placeholder="المستخدم" id="username">
+        <input type="password" class="input-block-level" placeholder="الرقم السري" id="password">
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> تذكرني
         </label>
-        <input type="submit">
+        <button class="btn btn-large btn-primary" type="submit">دخول</button>
       </form>
 
     </div> <!-- /container -->
