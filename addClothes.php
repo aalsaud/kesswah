@@ -138,7 +138,7 @@
                   <td>
 	                  <div class="control-group">
 					  <div class="controls">
-					    <select class="input-block-level">
+					    <select class="input-block-level" required>
 						  <option>ذكر</option>
 						  <option>أنثى</option>
 						</select>
@@ -149,7 +149,7 @@
                   <td>
 	                  <div class="control-group">
 					  <div class="controls">
-					    <input type="number" class="input-block-level" id="inputdata">
+					    <input type="number" class="input-block-level" id="inputdata" required>
 					    <span class="help-inline"></span>
 					  </div>
 					</div>
@@ -171,7 +171,7 @@
                   <td>
 	                  <div class="control-group">
 					  <div class="controls">
-					    <input type="text" class="input-block-level" id="inputdata">
+					    <input type="text" class="input-block-level" id="inputdata" required>
 					    <span class="help-inline"></span>
 					  </div>
 					</div>
@@ -179,7 +179,7 @@
                   <td>
                   	<div class="control-group">
 					  <div class="controls">
-					    <input type="number"class="input-block-level" id="inputdata">
+					    <input type="number"class="input-block-level" id="inputdata" required >
 					    <span class="help-inline"></span>
 					  </div>
 					</div>
@@ -190,7 +190,7 @@
             <div class="form-actions">
 	            <a class="btn btn-large" id="addClothsBtn" type="submit" >+</a>
 	            <a class="btn btn-large" id="removeClothsBtn" type="submit" >-</a>
-	            <a class="btn btn-large btn-primary" href="#" type="submit" id="submitClothesBtn"> تسجيل الملابس</a>
+	            <input class="btn btn-large btn-primary" type="submit" name="submit" id="submit" class="button" value="تسجيل الملابس"/>
 			</div>
         </form>
         </p>
